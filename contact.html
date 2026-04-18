@@ -282,7 +282,7 @@
         <h2>Send us a message</h2>
         <p>Fill in the form below and we'll get back to you within one business day.</p>
 
-        <form id="contactForm" novalidate>
+        <form id="contactForm" action="https://formspree.io/f/mojydydg" method="POST" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="firstName">First name <span class="req">*</span></label>
@@ -391,7 +391,7 @@
 <script>
   renderHeader();
 
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
     e.preventDefault();
     const required = this.querySelectorAll('[required]');
     let valid = true;
@@ -404,7 +404,29 @@
       }
     });
     if (!valid) return;
-    document.getElementById('contactCard').classList.add('submitted');
+
+    const btn = this.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('contactCard').classList.add('submitted');
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+        alert('Something went wrong. Please try again.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+      alert('Could not send message. Please check your connection and try again.');
+    }
   });
 </script>
 
