@@ -57,40 +57,6 @@ body {
 .header-brand img { height: 40px; width: auto; display: block; }
 .header-brand p { font-size: 16px; color: #002060; margin-top: 4px; }
 
-.header-created-by {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-.header-created-by span {
-  font-size: 11px;
-  color: rgba(17,24,39,0.45);
-  white-space: nowrap;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-}
-
-.header-created-by-logos {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.header-created-by-logos img:first-child {
-  padding-right: 12px;
-  border-right: 1px solid rgba(17,24,39,0.15);
-}
-
-.header-created-by img {
-  height: 22px;
-  width: auto;
-  filter: grayscale(100%);
-  display: block;
-}
 
 .header-back { margin-left: 16px; }
 
@@ -114,6 +80,83 @@ body {
   stroke: currentColor; fill: none;
   stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
   flex-shrink: 0;
+}
+
+/* ── Site Nav (inline in header) ─────────────────────────── */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.site-nav-link {
+  display: inline-block;
+  padding: 7px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(17,24,39,0.62);
+  text-decoration: none;
+  border-radius: 6px;
+  background: rgba(131,78,173,0.07);
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.site-nav-link:hover {
+  color: #834EAD;
+  background: rgba(131,78,173,0.18);
+}
+
+.site-nav-link--active {
+  color: #834EAD;
+  font-weight: 600;
+  background: rgba(131,78,173,0.13);
+}
+
+/* ── Site Footer ─────────────────────────────────────────── */
+.site-footer {
+  background: #dddddd;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 18px 12px;
+  flex-shrink: 0;
+}
+
+.site-footer-inner {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.site-footer-label {
+  font-size: 11px;
+  color: rgba(17,24,39,0.45);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.site-footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-footer-logos img:first-child {
+  padding-right: 12px;
+  border-right: 1px solid rgba(17,24,39,0.15);
+}
+
+.site-footer-logos img {
+  height: 22px;
+  width: auto;
+  display: block;
+  filter: grayscale(100%);
 }
 
 /* ── Breadcrumb ──────────────────────────────────────────── */
@@ -497,7 +540,10 @@ body {
 }
 @media (max-width: 768px) {
   .page-main { padding: 20px 16px 40px; }
-  .header-inner { padding: 8px 16px 12px; }
+  .header-inner { padding: 8px 16px 12px; flex-wrap: wrap; }
+  .site-nav { margin-left: 0; width: 100%; gap: 0; margin-top: 4px; }
+  .site-nav-link { padding: 6px 10px; font-size: 13px; }
+  .site-footer-inner { padding: 0 20px; gap: 10px; flex-direction: column; text-align: center; }
   .header-spacer { width: 60px; }
   .header-back { font-size: 0; width: auto; }
   .header-back svg { width: 18px; height: 18px; }

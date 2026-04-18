@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Tarelium</title>
+<link rel="stylesheet" href="assets/css/shared.css" />
+<style>
+  .contact-main {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+  }
+
+  .page-hero {
+    margin-bottom: 56px;
+  }
+
+  .page-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #834EAD;
+    margin-bottom: 12px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    color: #0F295E;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .page-hero p {
+    font-size: 17px;
+    color: rgba(17,24,39,0.62);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* Form */
+  .contact-form-card {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(15,41,94,0.07);
+  }
+
+  .contact-form-card h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0F295E;
+    margin-bottom: 8px;
+  }
+
+  .contact-form-card > p {
+    font-size: 14px;
+    color: rgba(17,24,39,0.55);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+  }
+
+  .form-label .req { color: #834EAD; }
+
+  .form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #111827;
+    background: #FAFAFA;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    appearance: none;
+  }
+
+  .form-control:focus {
+    border-color: #834EAD;
+    box-shadow: 0 0 0 3px rgba(131,78,173,0.12);
+    background: #fff;
+  }
+
+  textarea.form-control {
+    resize: vertical;
+    min-height: 130px;
+  }
+
+  select.form-control {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #834EAD;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: filter 0.15s, transform 0.1s;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .form-submit:active { transform: scale(0.98); }
+  .form-submit svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .form-note {
+    font-size: 12px;
+    color: rgba(17,24,39,0.42);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  /* Success message (hidden by default) */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .form-success.visible { display: block; }
+  .contact-form-card.submitted .form-body { display: none; }
+  .contact-form-card.submitted .form-success { display: block; }
+
+  .success-icon {
+    width: 64px; height: 64px;
+    background: #f0fdf4;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .success-icon svg { width: 32px; height: 32px; stroke: #16a34a; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .form-success h3 { font-size: 22px; font-weight: 600; color: #0F295E; margin-bottom: 10px; }
+  .form-success p { font-size: 15px; color: rgba(17,24,39,0.58); line-height: 1.7; }
+
+  /* Sidebar info */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-info-card {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 28px;
+  }
+
+  .contact-info-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0F295E;
+    margin-bottom: 16px;
+  }
+
+  .contact-partner {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .contact-partner:last-child { border-bottom: none; padding-bottom: 0; }
+  .contact-partner:first-of-type { padding-top: 0; }
+
+  .partner-logo-wrap {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: #F8F9FB;
+    border: 1px solid #E2E8F0;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 4px;
+  }
+
+  .partner-logo-wrap img { width: 100%; height: 100%; object-fit: contain; }
+
+  .partner-info { flex: 1; }
+  .partner-name { font-size: 14px; font-weight: 600; color: #1a2740; margin-bottom: 3px; }
+  .partner-role { font-size: 13px; color: rgba(17,24,39,0.52); line-height: 1.5; }
+
+  .contact-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(17,24,39,0.65);
+    line-height: 1.5;
+  }
+
+  .contact-detail-item svg {
+    width: 16px; height: 16px;
+    stroke: #834EAD; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-sidebar { flex-direction: row; flex-wrap: wrap; }
+    .contact-info-card { flex: 1; min-width: 260px; }
+  }
+
+  @media (max-width: 768px) {
+    .contact-main { padding: 36px 20px 56px; }
+    .contact-form-card { padding: 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-sidebar { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="contact-main">
+  <div class="page-hero">
+    <div class="page-eyebrow">Contact</div>
+    <h1>Get in touch with the Tarelium team</h1>
+    <p>Interested in Tarelium for your institution? Have a question about the accelerators or want to arrange a personalised demo? We'd love to hear from you.</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-form-card" id="contactCard">
+      <div class="form-body">
+        <h2>Send us a message</h2>
+        <p>Fill in the form below and we'll get back to you within one business day.</p>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First name <span class="req">*</span></label>
+              <input class="form-control" type="text" id="firstName" name="firstName" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last name <span class="req">*</span></label>
+              <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Work email <span class="req">*</span></label>
+            <input class="form-control" type="email" id="email" name="email" placeholder="jane.smith@university.edu.au" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="institution">Institution / Organisation</label>
+            <input class="form-control" type="text" id="institution" name="institution" placeholder="University of Example" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="topic">What are you interested in? <span class="req">*</span></label>
+            <select class="form-control" id="topic" name="topic" required>
+              <option value="" disabled selected>Select a topic…</option>
+              <option value="demo">Arrange a personalised demo</option>
+              <option value="pricing">Pricing and licensing</option>
+              <option value="implementation">Implementation and onboarding</option>
+              <option value="architecture">Technical architecture</option>
+              <option value="partnership">Partnership opportunities</option>
+              <option value="other">General enquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message <span class="req">*</span></label>
+            <textarea class="form-control" id="message" name="message" placeholder="Tell us a bit about your institution and what you're hoping to achieve…" required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+          <p class="form-note">We respect your privacy. Your information will only be used to respond to your enquiry.</p>
+        </form>
+      </div>
+
+      <div class="form-success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3>Message sent!</h3>
+        <p>Thank you for reaching out. We'll be in touch within one business day.</p>
+      </div>
+    </div>
+
+    <div class="contact-sidebar">
+      <div class="contact-info-card">
+        <h3>Created and maintained by</h3>
+        <div class="contact-partner">
+          <div class="partner-logo-wrap">
+            <img src="assets/images/Bayshann-logo.png" alt="Bayshann" />
+          </div>
+          <div class="partner-info">
+            <div class="partner-name">Bayshann</div>
+            <div class="partner-role">Strategy and product development lead for the Tarelium accelerators.</div>
+          </div>
+        </div>
+        <div class="contact-partner">
+          <div class="partner-logo-wrap">
+            <img src="assets/images/KahilConsulting-logo.png" alt="Kahil Consulting" />
+          </div>
+          <div class="partner-info">
+            <div class="partner-name">Kahil Consulting</div>
+            <div class="partner-role">Technology partner specialising in higher education technology.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-info-card">
+        <h3>What to expect</h3>
+        <div class="contact-detail-list">
+          <div class="contact-detail-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Quick response time
+          </div>
+          <div class="contact-detail-item">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            A dedicated consultant for your enquiry
+          </div>
+          <div class="contact-detail-item">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Personalised demo tailored to your institution
+          </div>
+          <div class="contact-detail-item">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            No obligation, just a conversation
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/shared.js"></script>
+<script>
+  renderHeader();
+
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const required = this.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(function (field) {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#e53e3e';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+    if (!valid) return;
+    document.getElementById('contactCard').classList.add('submitted');
+  });
+</script>
+
+</body>
+</html>

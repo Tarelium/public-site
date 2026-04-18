@@ -30,10 +30,21 @@
   // Derive the assets base URL from the shared.js script tag (always at {base}/assets/js/shared.js)
   const _scriptSrc = (document.currentScript || document.querySelector('script[src*="shared.js"]') || {}).src || '';
   const ASSETS_BASE = _scriptSrc ? _scriptSrc.replace(/\/assets\/js\/shared\.js.*$/, '/assets') : '/assets';
-  const ROOT_HREF = _scriptSrc ? _scriptSrc.replace(/\/assets\/js\/shared\.js.*$/, '/index.html') : '/index.html';
+  const _siteRoot = _scriptSrc ? _scriptSrc.replace(/\/assets\/js\/shared\.js.*$/, '') : '';
+  const ROOT_HREF = _siteRoot + '/index.html';
+  const GUIDED_DEMOS_HREF = _siteRoot + '/guided-demos.html';
+  const ARCHITECTURE_HREF = _siteRoot + '/architecture.html';
+  const CONTACT_HREF = _siteRoot + '/contact.html';
   const LOGO_SRC = ASSETS_BASE + '/images/Talerium-logo.png';
   const LOGO_BAYSHANN = ASSETS_BASE + '/images/Bayshann-logo.png';
   const LOGO_KAHIL = ASSETS_BASE + '/images/KahilConsulting-logo.png';
+
+  function _navActive(href) {
+    const p = window.location.pathname;
+    const hrefPath = href.replace(/^https?:\/\/[^/]+/, '');
+    if (hrefPath === '/guided-demos.html' && p.includes('/hubs/')) return true;
+    return p === hrefPath || (hrefPath.endsWith('/index.html') && (p === '/' || p === hrefPath));
+  }
 
   /* ── Header ────────────────────────────────────────────── */
 
@@ -47,6 +58,16 @@
     }
     favicon.href = FAVICON;
 
+    const navLinks = [
+      { label: 'Home', href: ROOT_HREF },
+      { label: 'Guided Demos', href: GUIDED_DEMOS_HREF },
+      { label: 'Architecture', href: ARCHITECTURE_HREF },
+      { label: 'Contact', href: CONTACT_HREF },
+    ];
+    const navHTML = navLinks.map(function (l) {
+      return `<a href="${l.href}" class="site-nav-link${_navActive(l.href) ? ' site-nav-link--active' : ''}">${l.label}</a>`;
+    }).join('');
+
     const html = `
 <header class="site-header">
   <div class="header-inner">
@@ -54,19 +75,27 @@
       <a href="${ROOT_HREF}"><img src="${LOGO_SRC}" alt="Talerium" /></a>
       <p>Unified Student Intelligence</p>
     </div>
-    <div class="header-created-by">
-      <span>Created and Maintained by</span>
-      <div class="header-created-by-logos">
-        <img src="${LOGO_BAYSHANN}" alt="Bayshann" />
-        <img src="${LOGO_KAHIL}" alt="Kahil Consulting" />
-      </div>
-    </div>
+    <nav class="site-nav" aria-label="Main navigation">${navHTML}</nav>
   </div>
 </header>`;
 
     const el = document.getElementById('site-header');
     if (el) el.outerHTML = html;
     else document.body.insertAdjacentHTML('afterbegin', html);
+
+    const footerHTML = `
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-label">Created and Maintained by</span>
+    <div class="site-footer-logos">
+      <img src="${LOGO_BAYSHANN}" alt="Bayshann" />
+      <img src="${LOGO_KAHIL}" alt="Kahil Consulting" />
+    </div>
+  </div>
+</footer>`;
+    if (!document.querySelector('.site-footer')) {
+      document.body.insertAdjacentHTML('beforeend', footerHTML);
+    }
   };
 
   /* ── Breadcrumb ─────────────────────────────────────────── */
@@ -145,7 +174,7 @@
 
     renderHeader({ backHref: '../', backLabel: demo.hub });
     renderBreadcrumb([
-      { label: 'App Hub', href: '../../../index.html' },
+      { label: 'Guided Demos', href: GUIDED_DEMOS_HREF },
       { label: demo.hub, href: '../' },
       { label: demo.persona }
     ]);
