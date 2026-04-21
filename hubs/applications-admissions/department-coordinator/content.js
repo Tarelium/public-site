@@ -1,6 +1,6 @@
 /* ============================================================
-   Applications & Admissions Hub — Department Coordinator
-   Demo Content — TBD (update steps below when ready)
+   Applications & Admissions Hub - Department Coordinator
+   Demo Content - TBD (update steps below when ready)
    ============================================================ */
 
 window.DEMO = {
@@ -11,8 +11,8 @@ window.DEMO = {
   color:       "#5A7815",
 
   steps: [
-    { title: "TBD — Step 1", description: "Demo content coming soon. This step will cover reviewing applications assigned to the department.", screenshots: [] },
-    { title: "TBD — Step 2", description: "Demo content coming soon. This step will cover managing interview schedules.", screenshots: [] },
-    { title: "TBD — Step 3", description: "Demo content coming soon. This step will cover submitting departmental recommendations.", screenshots: [] }
+    { title: "TBD - Step 1", description: "Demo content coming soon. This step will cover reviewing applications assigned to the department.", screenshots: [] },
+    { title: "TBD - Step 2", description: "Demo content coming soon. This step will cover managing interview schedules.", screenshots: [] },
+    { title: "TBD - Step 3", description: "Demo content coming soon. This step will cover submitting departmental recommendations.", screenshots: [] }
   ]
 };

@@ -1,5 +1,5 @@
 /* ============================================================
-   Scholarship Hub — Scholarship Manager
+   Scholarship Hub - Scholarship Manager
    Demo Content
 
    HOW TO EDIT:

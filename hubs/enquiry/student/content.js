@@ -1,6 +1,6 @@
 /* ============================================================
-   Enquiry Hub — Student
-   Demo Content — TBD (update steps below when ready)
+   Enquiry Hub - Student
+   Demo Content - TBD (update steps below when ready)
    ============================================================ */
 
 window.DEMO = {
@@ -11,8 +11,8 @@ window.DEMO = {
   color:       "#A08015",
 
   steps: [
-    { title: "TBD — Step 1", description: "Demo content coming soon. This step will cover how students submit an enquiry through the portal.", screenshots: [] },
-    { title: "TBD — Step 2", description: "Demo content coming soon. This step will cover tracking enquiry status and receiving responses.", screenshots: [] },
-    { title: "TBD — Step 3", description: "Demo content coming soon. This step will cover using the self-service knowledge base for quick answers.", screenshots: [] }
+    { title: "TBD - Step 1", description: "Demo content coming soon. This step will cover how students submit an enquiry through the portal.", screenshots: [] },
+    { title: "TBD - Step 2", description: "Demo content coming soon. This step will cover tracking enquiry status and receiving responses.", screenshots: [] },
+    { title: "TBD - Step 3", description: "Demo content coming soon. This step will cover using the self-service knowledge base for quick answers.", screenshots: [] }
   ]
 };

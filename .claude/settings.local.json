@@ -3,7 +3,9 @@
     "allow": [
       "Bash(find hubs:*)",
       "Bash(grep -l \"window.DEMO\" hubs/*/*/content.js)",
-      "Bash(xargs sed:*)"
+      "Bash(xargs sed:*)",
+      "WebFetch(domain:www.bayshann.com)",
+      "WebFetch(domain:images.squarespace-cdn.com)"
     ]
   }
 }

@@ -1,6 +1,6 @@
 /* ============================================================
-   Applications & Admissions Hub — Prospective Student
-   Demo Content — TBD (update steps below when ready)
+   Applications & Admissions Hub - Prospective Student
+   Demo Content - TBD (update steps below when ready)
    ============================================================ */
 
 window.DEMO = {
@@ -11,8 +11,8 @@ window.DEMO = {
   color:       "#5A7815",
 
   steps: [
-    { title: "TBD — Step 1", description: "Demo content coming soon. This step will cover how prospective students explore available courses and programmes.", screenshots: [] },
-    { title: "TBD — Step 2", description: "Demo content coming soon. This step will cover submitting a new application.", screenshots: [] },
-    { title: "TBD — Step 3", description: "Demo content coming soon. This step will cover tracking application status and responding to offers.", screenshots: [] }
+    { title: "TBD - Step 1", description: "Demo content coming soon. This step will cover how prospective students explore available courses and programmes.", screenshots: [] },
+    { title: "TBD - Step 2", description: "Demo content coming soon. This step will cover submitting a new application.", screenshots: [] },
+    { title: "TBD - Step 3", description: "Demo content coming soon. This step will cover tracking application status and responding to offers.", screenshots: [] }
   ]
 };

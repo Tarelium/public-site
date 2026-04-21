@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tarelium — Unified Student Intelligence</title>
+<title>Tarelium - Unified Student Intelligence</title>
 <link rel="stylesheet" href="assets/css/shared.css" />
 <style>
   /* ── Landing page styles ── */
 
   /* Hero */
   .hero {
-    background: linear-gradient(135deg, #0F295E 0%, #1a3a7a 45%, #4a2070 100%);
+    background: linear-gradient(135deg, #001845 0%, #002060 50%, #003087 100%);
     color: #fff;
     padding: 80px 32px 90px;
     position: relative;
@@ -26,7 +26,7 @@
   }
 
   .hero-inner {
-    max-width: 1800px;
+    max-width: 1400px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -39,13 +39,13 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(131,78,173,0.35);
-    border: 1px solid rgba(131,78,173,0.6);
+    background: rgba(0,102,204,0.30);
+    border: 1px solid rgba(102,178,255,0.55);
     border-radius: 20px;
     padding: 6px 14px;
     font-size: 13px;
     font-weight: 500;
-    color: #d4b8f5;
+    color: #99CCFF;
     margin-bottom: 24px;
     letter-spacing: 0.3px;
   }
@@ -65,7 +65,7 @@
   }
 
   .hero h1 span {
-    color: #96DCF8;
+    color: #66B2FF;
   }
 
   .hero-sub {
@@ -86,10 +86,10 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #834EAD;
+    background: #0066CC;
     color: #fff;
     padding: 14px 28px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -168,7 +168,7 @@
   .hero-stat-num {
     font-size: 28px;
     font-weight: 700;
-    color: #96DCF8;
+    color: #66B2FF;
     line-height: 1;
     margin-bottom: 4px;
   }
@@ -184,27 +184,27 @@
   }
 
   .section-inner {
-    max-width: 1800px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
   .section--alt {
-    background: #fff;
+    background: #F4F7FB;
   }
 
   .section-eyebrow {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #834EAD;
+    color: #0066CC;
     margin-bottom: 12px;
   }
 
   .section-heading {
     font-size: clamp(24px, 2vw, 32px);
     font-weight: 700;
-    color: #0F295E;
+    color: #002060;
     line-height: 1.2;
     margin-bottom: 16px;
   }
@@ -217,42 +217,85 @@
     margin-bottom: 52px;
   }
 
-  /* Value props grid */
-  .value-grid {
+  /* Value props - two-column split */
+  .value-split {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
   }
 
-  .value-card {
-    background: #F8F9FB;
-    border: 1px solid #E2E8F0;
-    border-radius: 14px;
-    padding: 28px;
-    transition: transform 0.18s, box-shadow 0.18s;
+  .value-split-left .section-eyebrow { margin-bottom: 14px; }
+  .value-split-left .section-heading { margin-bottom: 20px; }
+
+  .value-split-lead {
+    font-size: 16px;
+    color: rgba(17,24,39,0.65);
+    line-height: 1.75;
+    margin-bottom: 20px;
   }
 
-  .value-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(15,41,94,0.10);
+  .value-split-sub {
+    font-size: 15px;
+    color: rgba(17,24,39,0.55);
+    line-height: 1.75;
+    margin-bottom: 32px;
   }
 
-  .value-icon {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #EDE0FA, #D4E8FF);
+  .btn-value-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1B2F6B;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: filter 0.15s, transform 0.1s;
+  }
+  .btn-value-cta:hover { filter: brightness(1.15); transform: translateY(-1px); }
+
+  /* Card stack */
+  .value-cards-panel {
+    background: #EBF4FF;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .value-hcard {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 4px rgba(0,32,96,0.06);
+  }
+
+  .value-hcard-icon {
+    width: 46px; height: 46px;
+    border-radius: 10px;
+    flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 18px;
   }
 
-  .value-icon svg {
+  .value-hcard-icon svg {
     width: 22px; height: 22px;
-    stroke: #834EAD; fill: none;
+    fill: none;
     stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
   }
 
-  .value-title { font-size: 18px; font-weight: 600; color: #0F295E; margin-bottom: 10px; }
-  .value-desc { font-size: 14px; color: rgba(17,24,39,0.62); line-height: 1.7; }
+  .value-hcard-title { font-size: 15px; font-weight: 600; color: #111827; margin-bottom: 3px; }
+  .value-hcard-desc { font-size: 13px; color: rgba(17,24,39,0.58); line-height: 1.55; }
+
+  @media (max-width: 1024px) {
+    .value-split { grid-template-columns: 1fr; gap: 40px; }
+  }
 
   /* Accelerators section */
   .accelerator-grid {
@@ -263,13 +306,13 @@
   }
 
   .acc-card {
-    background: #F0F0F0;
-    border: 1px solid #E2E8F0;
-    border-radius: 12px;
+    background: #F4F7FB;
+    border: 1px solid #DDE3EC;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 12px rgba(17,24,39,0.10), 0 1px 4px rgba(17,24,39,0.06);
+    box-shadow: 0 2px 8px rgba(0,32,96,0.07), 0 1px 3px rgba(0,32,96,0.04);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
   }
 
@@ -302,7 +345,7 @@
     padding: 16px;
   }
 
-  .acc-card-name { font-size: 23px; font-weight: 450; color: #323742; line-height: 1.3; }
+  .acc-card-name { font-size: 20px; font-weight: 600; color: #002060; line-height: 1.3; }
   .acc-card-desc {
     font-size: 14px;
     color: rgba(17,24,39,0.6);
@@ -398,12 +441,12 @@
     margin: 0 auto;
   }
 
-  .eco-name { font-size: 16px; font-weight: 600; color: #0F295E; margin-bottom: 6px; }
+  .eco-name { font-size: 16px; font-weight: 600; color: #002060; margin-bottom: 6px; }
   .eco-desc { font-size: 13px; color: rgba(17,24,39,0.58); line-height: 1.6; }
 
   /* CTA section */
   .cta-section {
-    background: linear-gradient(135deg, #0F295E 0%, #4a2070 100%);
+    background: linear-gradient(160deg, #083070 0%, #0D47A1 55%, #1565C0 100%);
     padding: 80px 32px;
     text-align: center;
     color: #fff;
@@ -439,7 +482,7 @@
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero-visual { display: none; }
-    .value-grid { grid-template-columns: repeat(2, 1fr); }
+    .value-split { grid-template-columns: 1fr; gap: 40px; }
     .ecosystem-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
@@ -447,7 +490,6 @@
     .hero { padding: 56px 20px 60px; }
     .section { padding: 56px 20px; }
     .cta-section { padding: 56px 20px; }
-    .value-grid { grid-template-columns: 1fr; }
     .accelerator-grid { grid-template-columns: repeat(2, 1fr); }
     .screenshots-showcase { grid-template-columns: 1fr; }
     .hero-stats { gap: 20px; }
@@ -456,6 +498,216 @@
   @media (max-width: 480px) {
     .accelerator-grid { grid-template-columns: 1fr; }
     .ecosystem-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Partnership Section ── */
+  .partnership-section {
+    background: linear-gradient(160deg, #010C1F 0%, #00142E 50%, #001A3A 100%);
+    padding: 80px 32px;
+    color: #fff;
+  }
+
+  .partnership-section .section-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .partnership-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #66B2FF;
+    margin-bottom: 14px;
+  }
+
+  .partnership-heading {
+    font-size: clamp(28px, 2.5vw, 40px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    max-width: 640px;
+  }
+
+  .partnership-lead {
+    font-size: 16px;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.75;
+    max-width: 680px;
+    margin-bottom: 48px;
+  }
+
+  .partnership-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .partner-card {
+    border-radius: 12px;
+    padding: 28px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .partner-card--bayshann {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .partner-card--kahil {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+
+  .partner-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    width: fit-content;
+  }
+
+  .partner-badge--blue {
+    background: rgba(102,178,255,0.18);
+    color: #66B2FF;
+    border: 1px solid rgba(102,178,255,0.3);
+  }
+
+  .partner-badge--orange {
+    background: rgba(251,191,36,0.18);
+    color: #F59332;
+    border: 1px solid rgba(251,191,36,0.3);
+  }
+
+  .partner-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .partner-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .partner-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .partner-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.5;
+  }
+
+  .partner-list li::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 1px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2366B2FF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .partner-card--kahil .partner-list li::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F59332' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  }
+
+  .partnership-banner {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .partnership-banner-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(251,191,36,0.15);
+    border: 1px solid rgba(251,191,36,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .partnership-banner-text {
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .partnership-banner-text strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .partnership-banner-text p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.60);
+    line-height: 1.65;
+  }
+
+  .partnership-banner-tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+
+  .partner-tag-blue {
+    background: rgba(102,178,255,0.15);
+    color: #66B2FF;
+    border: 1px solid rgba(102,178,255,0.3);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .partner-tag-orange {
+    background: rgba(251,191,36,0.15);
+    color: #F59332;
+    border: 1px solid rgba(251,191,36,0.3);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .partnership-section { padding: 56px 20px; }
+    .partnership-grid { grid-template-columns: 1fr; }
+    .partnership-banner { flex-direction: column; align-items: flex-start; }
   }
 
   /* ── Accelerator Modal ── */
@@ -528,7 +780,7 @@
   .acc-modal-band svg {
     width: 52px; height: 52px;
     fill: none;
-    stroke: var(--modal-color, #834EAD);
+    stroke: var(--modal-color, #0066CC);
     stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -557,7 +809,7 @@
   .acc-modal-title {
     font-size: 24px;
     font-weight: 700;
-    color: #0F295E;
+    color: #002060;
     margin-bottom: 12px;
     line-height: 1.2;
   }
@@ -591,7 +843,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--modal-color, #834EAD);
+    background: var(--modal-color, #0066CC);
     flex-shrink: 0;
     margin-top: 5px;
   }
@@ -629,12 +881,12 @@
     align-items: center;
     gap: 8px;
     padding: 11px 22px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
     color: #fff;
-    background: var(--modal-color, #834EAD);
+    background: var(--modal-color, #0066CC);
     transition: filter 0.15s, transform 0.1s;
   }
   .acc-modal-cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
@@ -651,7 +903,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <h1>Student Lifecycle <span>Intelligence</span> Accelerators</h1>
+      <h1>Student Lifecycle Intelligence, <span style="font-style:italic;">Accelerated</span></h1>
       <p class="hero-sub">Tarelium delivers pre-built, production-ready accelerators for higher education powered by the Microsoft ecosystem.</p>
       <div class="hero-actions">
         <a href="guided-demos.html" class="btn-hero-primary">
@@ -674,7 +926,11 @@
         </div>
         <div>
           <div class="hero-stat-num">AI</div>
-          <div class="hero-stat-label">Powered by Copilot Studio and Azure Foundry</div>
+          <div class="hero-stat-label">Copilot Studio & Azure Foundry</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">Weeks</div>
+          <div class="hero-stat-label">Not Months to Go Live</div>
         </div>
       </div>
     </div>
@@ -694,53 +950,74 @@
 <!-- What are Tarelium Accelerators -->
 <section class="section section--alt">
   <div class="section-inner">
-    <div class="section-eyebrow">What is Tarelium?</div>
-    <h2 class="section-heading">Purpose-built accelerators for higher education</h2>
-    <p class="section-lead">Tarelium is a suite of intelligent, Microsoft-native accelerators that transform how universities and colleges manage the complete student lifecycle — from recruitment through graduation and beyond.</p>
+    <div class="value-split">
 
-    <div class="value-grid">
-      <div class="value-card">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="value-title">Accelerate Time to Value</div>
-        <div class="value-desc">Pre-built processes, data models, and automations mean institutions go live in weeks, not months. No starting from scratch — just configure and go.</div>
+      <!-- Left: heading + text + CTA -->
+      <div class="value-split-left">
+        <div class="section-eyebrow">What is Tarelium?</div>
+        <h2 class="section-heading">Purpose-built accelerators for higher education</h2>
+        <p class="value-split-lead">Tarelium is a suite of intelligent, Microsoft-native accelerators that transform how universities and colleges manage the complete student lifecycle - from recruitment through graduation and beyond.</p>
+        <p class="value-split-sub">Delivered by Bayshann with deep sector expertise in higher education, health care, and aged care - backed by over a decade of trusted institutional partnerships across Australia.</p>
+        <a href="https://www.bayshann.com/meet-with-us" class="btn-value-cta">Talk to Bayshann &rarr;</a>
       </div>
-      <div class="value-card">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>
+
+      <!-- Right: stacked horizontal cards -->
+      <div class="value-split-right">
+        <div class="value-cards-panel">
+
+          <div class="value-hcard">
+            <div class="value-hcard-icon" style="background:#FEF9C3;">
+              <svg viewBox="0 0 24 24" style="stroke:#CA8A04;"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div>
+              <div class="value-hcard-title">Accelerate Time to Value</div>
+              <div class="value-hcard-desc">Go live in weeks - pre-built processes, data models, and automations.</div>
+            </div>
+          </div>
+
+          <div class="value-hcard">
+            <div class="value-hcard-icon" style="background:#DCFCE7;">
+              <svg viewBox="0 0 24 24" style="stroke:#16A34A;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div>
+              <div class="value-hcard-title">360° Student View</div>
+              <div class="value-hcard-desc">Unified data across admissions, scholarships, support, and compliance.</div>
+            </div>
+          </div>
+
+          <div class="value-hcard">
+            <div class="value-hcard-icon" style="background:#DBEAFE;">
+              <svg viewBox="0 0 24 24" style="stroke:#2563EB;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <div class="value-hcard-title">Microsoft Native</div>
+              <div class="value-hcard-desc">Built on Dynamics 365, Power Platform, and Azure - tools your institution already uses.</div>
+            </div>
+          </div>
+
+          <div class="value-hcard">
+            <div class="value-hcard-icon" style="background:#EDE9FE;">
+              <svg viewBox="0 0 24 24" style="stroke:#7C3AED;"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M12 11V7a4 4 0 0 0-8 0"/><circle cx="12" cy="16" r="1" fill="#7C3AED"/></svg>
+            </div>
+            <div>
+              <div class="value-hcard-title">AI &amp; Copilot Ready</div>
+              <div class="value-hcard-desc">Microsoft Copilot embedded throughout - surface insights that matter.</div>
+            </div>
+          </div>
+
+          <div class="value-hcard">
+            <div class="value-hcard-icon" style="background:#E0F2FE;">
+              <svg viewBox="0 0 24 24" style="stroke:#0284C7;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="value-hcard-title">Compliance Built-In</div>
+              <div class="value-hcard-desc">Government reporting and audit trails built into every workflow.</div>
+            </div>
+          </div>
+
         </div>
-        <div class="value-title">360° Student View</div>
-        <div class="value-desc">Unified data across every department — admissions, scholarships, support, and compliance — gives staff a complete picture of every student's journey.</div>
       </div>
-      <div class="value-card">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="value-title">Microsoft Native</div>
-        <div class="value-desc">Built directly on Dynamics 365, Power Platform, and Azure — fully integrated with tools your institution already uses, including Teams and Office 365.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <div class="value-title">AI & Copilot Ready</div>
-        <div class="value-desc">Microsoft Copilot is embedded throughout — helping staff process applications faster, draft communications, and surface the insights that matter most.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <div class="value-title">Compliance Built-In</div>
-        <div class="value-desc">Government reporting, audit trails, and regulatory workflows are built into every process — so compliance is a natural outcome, not an afterthought.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="value-title">Student-Centred Design</div>
-        <div class="value-desc">Every accelerator is designed around real student and staff personas — delivering intuitive experiences that reduce friction and increase engagement.</div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -768,7 +1045,7 @@
   <div class="section-inner">
     <div class="section-eyebrow">See it in action</div>
     <h2 class="section-heading">Real screens from real processes</h2>
-    <p class="section-lead">Every guided demo takes you through actual product screens — the same interfaces your staff and students would use in production.</p>
+    <p class="section-lead">Every guided demo takes you through actual product screens - the same interfaces your staff and students would use in production.</p>
 
     <div class="screenshots-showcase">
       <div class="showcase-thumb">
@@ -792,7 +1069,7 @@
   <div class="section-inner">
     <div class="section-eyebrow">Built on Microsoft</div>
     <h2 class="section-heading">Deeply integrated with the Microsoft ecosystem</h2>
-    <p class="section-lead">Tarelium is not a standalone product — it extends and enriches the Microsoft platform your institution already invests in, maximising the return on your existing licenses.</p>
+    <p class="section-lead">Tarelium is not a standalone product - it extends and enriches the Microsoft platform your institution already invests in, maximising the return on your existing licenses.</p>
 
     <div class="ecosystem-grid">
       <div class="eco-card">
@@ -803,19 +1080,76 @@
       <div class="eco-card">
         <span class="eco-icon"><img src="assets/images/powerplatform-logo.png" alt="Power Platform" /></span>
         <div class="eco-name">Power Platform</div>
-        <div class="eco-desc">Power Apps, Power Automate, and Power BI deliver the UI, automation, and analytics layers — fully configurable by your team.</div>
+        <div class="eco-desc">Power Apps, Power Automate, and Power BI deliver the UI, automation, and analytics layers - fully configurable by your team.</div>
       </div>
       <div class="eco-card">
         <span class="eco-icon"><img src="assets/images/dynamics365-logo.png" alt="Dynamics 365" /></span>
         <div class="eco-name">Dynamics 365</div>
-        <div class="eco-desc">The core CRM and operations backbone — student records, cases, and workflows are native Dynamics 365 entities.</div>
+        <div class="eco-desc">The core CRM and operations backbone - student records, cases, and workflows are native Dynamics 365 entities.</div>
       </div>
       <div class="eco-card">
         <span class="eco-icon">🎓</span>
         <div class="eco-name">Microsoft Education Accelerator</div>
-        <div class="eco-desc">Built on and extending the Microsoft Education data model — fully aligned with HESA standards and sector best practice.</div>
+        <div class="eco-desc">Built on and extending the Microsoft Education data model - fully aligned with HESA standards and sector best practice.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Partnership -->
+<section class="partnership-section">
+  <div class="section-inner">
+
+    <div class="partnership-eyebrow">Our Partnership</div>
+    <h2 class="partnership-heading">Behind Tarelium: two partners, one platform</h2>
+    <p class="partnership-lead">Tarelium is the product of a deep, ongoing partnership between Bayshann and Kahil Consulting. Both partners co-invest in the research, design, and development of every accelerator. Bayshann leads your engagement - Kahil Consulting co-creates the platform that powers it.</p>
+
+    <div class="partnership-grid">
+
+      <!-- Bayshann card -->
+      <div class="partner-card partner-card--bayshann">
+        <span class="partner-badge partner-badge--blue">Your Client Partner</span>
+        <div class="partner-name">Bayshann</div>
+        <div class="partner-tagline">Innovation with Insight</div>
+        <ul class="partner-list">
+          <li>Your single point of contact and engagement lead</li>
+          <li>Solution strategy, scoping, and roadmap design</li>
+          <li>Advisory services, AI governance, and change management</li>
+          <li>Program delivery and ongoing platform support</li>
+          <li>Sales, presales, and commercial relationship</li>
+        </ul>
+      </div>
+
+      <!-- Kahil Consulting card -->
+      <div class="partner-card partner-card--kahil">
+        <span class="partner-badge partner-badge--orange">Product Co-Creator</span>
+        <div class="partner-name">Kahil Consulting</div>
+        <div class="partner-tagline">Dynamics 365 &amp; Power Platform Specialists</div>
+        <ul class="partner-list">
+          <li>Co-designs and engineers every Tarelium accelerator</li>
+          <li>Deep Dynamics 365, Power Platform, and Azure expertise</li>
+          <li>Joint investment in presales research and product development</li>
+          <li>Functional and technical solution architecture</li>
+          <li>Implementation, deployment, and technical handover</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Joint investment banner -->
+    <div class="partnership-banner">
+      <div class="partnership-banner-icon">🤝</div>
+      <div class="partnership-banner-text">
+        <strong>Joint Investment &amp; Co-ownership</strong>
+        <p>The Tarelium accelerator suite is jointly developed and co-owned by Bayshann and Kahil Consulting. Both partners invest in ongoing presales research, product innovation, and platform evolution - ensuring every accelerator reflects deep industry knowledge and technical excellence.</p>
+      </div>
+      <div class="partnership-banner-tags">
+        <span class="partner-tag-blue">Bayshann</span>
+        <span>+</span>
+        <span class="partner-tag-orange">Kahil Consulting</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -828,7 +1162,7 @@
       <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Explore Guided Demos
     </a>
-    <a href="contact.html" class="btn-hero-secondary">
+    <a href="https://www.bayshann.com/meet-with-us" class="btn-hero-secondary">
       <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Contact Us
     </a>
@@ -867,7 +1201,7 @@
     {
       name: "Events Hub", color: "#B05520", pastel: "#F8C8A0", live: false, slug: "events",
       desc: "Plan, promote, and manage open days, campus tours, and recruitment events",
-      details: "The Events Hub is the end-to-end platform for planning, running, and measuring recruitment events. From open days to virtual campus tours, it handles registrations, attendee communications, session scheduling, and post-event follow-up — all in one place.",
+      details: "The Events Hub is the end-to-end platform for planning, running, and measuring recruitment events. From open days to virtual campus tours, it handles registrations, attendee communications, session scheduling, and post-event follow-up - all in one place.",
       features: ["Event creation, scheduling, and capacity management", "Online registration and attendee self-service portal", "Automated reminders and confirmation communications", "Post-event attendance analytics and follow-up workflows"],
       screenshot: null,
       icon: `<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>`
@@ -883,7 +1217,7 @@
     {
       name: "Applications & Admissions Hub", color: "#5A7815", pastel: "#C8E095", live: true, slug: "applications-admissions",
       desc: "Review applications, manage offers, and track admissions decisions end-to-end",
-      details: "The Applications & Admissions Hub streamlines the full lifecycle of a student application — from submission through assessment, document verification, AI-assisted eligibility checks, and final offer. Admissions officers get a unified workspace to manage high volumes without losing the personal touch.",
+      details: "The Applications & Admissions Hub streamlines the full lifecycle of a student application - from submission through assessment, document verification, AI-assisted eligibility checks, and final offer. Admissions officers get a unified workspace to manage high volumes without losing the personal touch.",
       features: ["Centralised application inbox with smart filtering", "Document collection, verification, and AI review", "Assessment rules engine with configurable eligibility criteria", "Offer generation, tracking, and acceptance workflows", "Microsoft Copilot integration for AI-assisted assessments"],
       screenshot: "assets/screenshots/applications-admissions/admissions-officer/step-01-dashboard-a.png",
       icon: `<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>`
@@ -891,7 +1225,7 @@
     {
       name: "Scholarship Hub", color: "#1A6644", pastel: "#AADDC5", live: true, slug: "scholarship",
       desc: "Administer scholarship applications, assessments, and award management",
-      details: "The Scholarship Hub provides a complete end-to-end platform for running scholarship programs — from defining scholarship criteria and intake periods through receiving applications, scoring submissions, managing external reviewers, and awarding recipients.",
+      details: "The Scholarship Hub provides a complete end-to-end platform for running scholarship programs - from defining scholarship criteria and intake periods through receiving applications, scoring submissions, managing external reviewers, and awarding recipients.",
       features: ["Scholarship configuration with intake and eligibility rules", "Student self-service application portal", "Structured scoring and multi-reviewer assessment workflow", "Payment schedule and award disbursement tracking", "AI-assisted application review and shortlisting"],
       screenshot: "assets/screenshots/scholarship/student/step-01-studentportal-a.png",
       icon: `<svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/></svg>`
@@ -907,7 +1241,7 @@
     {
       name: "Government Support Hub", color: "#2B5F9E", pastel: "#C5DDF5", live: true, slug: "government-support",
       desc: "Manage government funding, compliance reporting, and student support scheme obligations",
-      details: "The Government Support Hub helps institutions manage their obligations under government student support schemes — including eligibility assessment, payment tracking, compliance monitoring, and regulatory reporting. It reduces manual effort and compliance risk across complex funding programs.",
+      details: "The Government Support Hub helps institutions manage their obligations under government student support schemes - including eligibility assessment, payment tracking, compliance monitoring, and regulatory reporting. It reduces manual effort and compliance risk across complex funding programs.",
       features: ["Student eligibility assessment for government support schemes", "Payment schedule creation and disbursement tracking", "Compliance monitoring with automated alert rules", "Regulatory reporting dashboards and export tools", "Full audit trail for government review and appeals"],
       screenshot: null,
       icon: `<svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3"/><path d="M5 10v11M19 10v11M9 10v11M15 10v11"/></svg>`

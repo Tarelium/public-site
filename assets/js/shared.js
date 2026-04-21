@@ -1,5 +1,5 @@
 /* ============================================================
-   Tarelium Demo Site — Shared JavaScript
+   Tarelium Demo Site - Shared JavaScript
    All pages load this file. Hub pages use renderHeader +
    renderBreadcrumb. Demo pages (L3) call initDemo().
    ============================================================ */
@@ -25,7 +25,7 @@
   }
   window.hexToRgba = hexToRgba;
 
-  const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23AAAAAA'/%3E%3Cpath d='M16 7L5 13l11 6 11-6z' fill='%23834EAD'/%3E%3Cpath d='M9 16.5v5.5c0 1.66 3.13 3 7 3s7-1.34 7-3V16.5' stroke='%23834EAD' stroke-width='1.8' stroke-linecap='round' fill='none'/%3E%3Cpath d='M27 13v5' stroke='white' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E";
+  const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B2F6B'/%3E%3Cpath d='M16 7L5 13l11 6 11-6z' fill='%23ffffff'/%3E%3Cpath d='M9 16.5v5.5c0 1.66 3.13 3 7 3s7-1.34 7-3V16.5' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' fill='none'/%3E%3Cpath d='M27 13v5' stroke='%2366B2FF' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E";
 
   // Derive the assets base URL from the shared.js script tag (always at {base}/assets/js/shared.js)
   const _scriptSrc = (document.currentScript || document.querySelector('script[src*="shared.js"]') || {}).src || '';
@@ -34,7 +34,7 @@
   const ROOT_HREF = _siteRoot + '/index.html';
   const GUIDED_DEMOS_HREF = _siteRoot + '/guided-demos.html';
   const ARCHITECTURE_HREF = _siteRoot + '/architecture.html';
-  const CONTACT_HREF = _siteRoot + '/contact.html';
+  const CONTACT_HREF = 'https://www.bayshann.com/meet-with-us';
   const LOGO_SRC = ASSETS_BASE + '/images/Talerium-logo.png';
   const LOGO_BAYSHANN = ASSETS_BASE + '/images/Bayshann-logo.png';
   const LOGO_KAHIL = ASSETS_BASE + '/images/KahilConsulting-logo.png';
@@ -72,8 +72,11 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="header-brand">
-      <a href="${ROOT_HREF}"><img src="${LOGO_SRC}" alt="Talerium" /></a>
-      <p>Unified Student Intelligence</p>
+      <a href="${ROOT_HREF}" class="header-brand-lockup">
+        <span class="header-tarelium-text">Tarelium</span>
+        <span class="header-by-text">by</span>
+        <img src="${LOGO_BAYSHANN}" alt="Bayshann" class="header-bayshann-logo" />
+      </a>
     </div>
     <nav class="site-nav" aria-label="Main navigation">${navHTML}</nav>
   </div>
@@ -86,10 +89,53 @@
     const footerHTML = `
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <span class="site-footer-label">Created and Maintained by</span>
-    <div class="site-footer-logos">
-      <img src="${LOGO_BAYSHANN}" alt="Bayshann" />
-      <img src="${LOGO_KAHIL}" alt="Kahil Consulting" />
+
+    <!-- Brand column -->
+    <div>
+      <div class="site-footer-brand-name">Tarelium</div>
+      <p class="site-footer-brand-sub">A <a href="https://www.bayshann.com" target="_blank" class="link-blue">Bayshann</a> digital solution, co-created with <a href="https://www.kahilconsulting.com" target="_blank" class="link-orange">Kahil Consulting</a></p>
+      <p class="site-footer-brand-desc">Unified student lifecycle intelligence accelerators for higher education, powered by the Microsoft ecosystem.</p>
+    </div>
+
+    <!-- Product column -->
+    <div>
+      <div class="site-footer-col-heading">Product</div>
+      <ul class="site-footer-links">
+        <li><a href="${ROOT_HREF}">Accelerators</a></li>
+        <li><a href="${GUIDED_DEMOS_HREF}">Guided Demos</a></li>
+        <li><a href="${ARCHITECTURE_HREF}">Architecture</a></li>
+      </ul>
+    </div>
+
+    <!-- Our Partners column -->
+    <div>
+      <div class="site-footer-col-heading">Our Partners</div>
+      <ul class="site-footer-links">
+        <li><a href="https://www.bayshann.com" target="_blank">Bayshann</a></li>
+        <li><a href="https://www.kahilconsulting.com" target="_blank">Kahil Consulting</a></li>
+      </ul>
+    </div>
+
+    <!-- Get In Touch column -->
+    <div>
+      <div class="site-footer-col-heading">Get In Touch</div>
+      <ul class="site-footer-links">
+        <li><a href="https://www.bayshann.com/meet-with-us" target="_blank">Meet with Bayshann</a></li>
+        <li><a href="mailto:info@bayshann.com">info@bayshann.com</a></li>
+        <li><a href="https://www.bayshann.com/insights" target="_blank">Insights &amp; Blog</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="site-footer-bottom">
+    <span class="site-footer-copyright">&copy; 2026 Bayshann &amp; Kahil Consulting. All rights reserved.</span>
+    <div class="site-footer-bottom-right">
+      <a href="https://www.bayshann.com" target="_blank" class="link-blue">Bayshann</a>
+      <span class="site-footer-bottom-divider">|</span>
+      <a href="https://www.kahilconsulting.com" target="_blank" class="link-orange">Kahil Consulting</a>
+      <span class="site-footer-bottom-divider">|</span>
+      <span class="link-muted">Microsoft Solutions Partner</span>
     </div>
   </div>
 </footer>`;
@@ -160,7 +206,7 @@
     document.documentElement.style.setProperty('--hub-color', color);
 
     if (demo.persona && demo.hub) {
-      document.title = `${demo.persona} — ${demo.hub} — Tarelium`;
+      document.title = `${demo.persona} - ${demo.hub} - Tarelium`;
     }
 
     const steps = demo.steps || [];

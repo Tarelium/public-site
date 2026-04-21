@@ -1,6 +1,6 @@
 /* ============================================================
-   Student Support & Knowledge Hub — Knowledge Manager
-   Demo Content — TBD (update steps below when ready)
+   Student Support & Knowledge Hub - Knowledge Manager
+   Demo Content - TBD (update steps below when ready)
    ============================================================ */
 
 window.DEMO = {
@@ -11,8 +11,8 @@ window.DEMO = {
   color:       "#6B3A9E",
 
   steps: [
-    { title: "TBD — Step 1", description: "Demo content coming soon. This step will cover the knowledge base authoring dashboard.", screenshots: [] },
-    { title: "TBD — Step 2", description: "Demo content coming soon. This step will cover creating and publishing a knowledge article.", screenshots: [] },
-    { title: "TBD — Step 3", description: "Demo content coming soon. This step will cover monitoring article effectiveness and managing content workflows.", screenshots: [] }
+    { title: "TBD - Step 1", description: "Demo content coming soon. This step will cover the knowledge base authoring dashboard.", screenshots: [] },
+    { title: "TBD - Step 2", description: "Demo content coming soon. This step will cover creating and publishing a knowledge article.", screenshots: [] },
+    { title: "TBD - Step 3", description: "Demo content coming soon. This step will cover monitoring article effectiveness and managing content workflows.", screenshots: [] }
   ]
 };

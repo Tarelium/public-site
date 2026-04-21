@@ -1,5 +1,5 @@
 /* ============================================================
-   Scholarship Hub — Application Reviewer
+   Scholarship Hub - Application Reviewer
    Demo Content
 
    HOW TO EDIT:

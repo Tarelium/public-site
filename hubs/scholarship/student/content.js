@@ -1,5 +1,5 @@
 /* ============================================================
-   Scholarship Hub — Student
+   Scholarship Hub - Student
    Demo Content
 
    HOW TO EDIT:
