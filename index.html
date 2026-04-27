@@ -1238,7 +1238,7 @@
       desc: "Process credit recognition and advanced standing requests for incoming students",
       details: "The Credit Transfer (RPL) Hub manages recognition of prior learning and advanced standing requests from incoming students. It provides structured workflows for students to submit evidence, assessors to evaluate claims against unit requirements, and faculty coordinators to approve outcomes.",
       features: ["Student self-service RPL application and evidence upload", "Unit mapping and equivalency rules engine", "Assessor and faculty coordinator review workflows", "Outcome tracking and academic record integration", "Audit trail for compliance and appeals"],
-      screenshot: null,
+      screenshot: "assets/screenshots/credit-transfer/student/step-01-studentportal-a.png",
       icon: `<svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>`
     },
     {
@@ -1246,7 +1246,7 @@
       desc: "Manage government funding, compliance reporting, and student support scheme obligations",
       details: "The Government Support Hub helps institutions manage their obligations under government student support schemes - including eligibility assessment, payment tracking, compliance monitoring, and regulatory reporting. It reduces manual effort and compliance risk across complex funding programs.",
       features: ["Student eligibility assessment for government support schemes", "Payment schedule creation and disbursement tracking", "Compliance monitoring with automated alert rules", "Regulatory reporting dashboards and export tools", "Full audit trail for government review and appeals"],
-      screenshot: null,
+      screenshot: "assets/screenshots/government-support/application-reviewer/step-01-applicationdashboard-a.png",
       icon: `<svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3"/><path d="M5 10v11M19 10v11M9 10v11M15 10v11"/></svg>`
     },
     {
@@ -1318,7 +1318,10 @@
   ACCELERATORS.forEach(function (a) {
     const rgb = hexToRgb(a.color);
     const pastelRgb = hexToRgb(a.pastel);
-    const bandBg = `linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)), linear-gradient(rgba(${pastelRgb},0.82), rgba(${pastelRgb},0.82)), url('https://images.unsplash.com/photo-1519452575417-564c1401ecc0?q=80&w=1200&auto=format&fit=crop') center/cover`;
+    const bgImg = a.screenshot
+      ? `url('${a.screenshot}')`
+      : `url('https://images.unsplash.com/photo-1519452575417-564c1401ecc0?q=80&w=1200&auto=format&fit=crop')`;
+    const bandBg = `linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)), linear-gradient(rgba(${pastelRgb},0.82), rgba(${pastelRgb},0.82)), ${bgImg} center/cover`;
     const card = document.createElement('div');
     card.className = 'acc-card' + (a.live ? ' acc-card--live' : '');
     card.style.setProperty('--acc-color', a.color);
